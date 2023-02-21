@@ -3,15 +3,31 @@ import { CommonModule } from '@angular/common';
 
 import { UserRoutingModule } from './user-routing.module';
 import { UserComponent } from './user.component';
+import {NzTableModule} from "ng-zorro-antd/table";
+import {NzDividerModule} from "ng-zorro-antd/divider";
+import {NzGridModule} from "ng-zorro-antd/grid";
+import {NzButtonModule} from "ng-zorro-antd/button";
+import {NzIconModule} from "ng-zorro-antd/icon";
+import {NewUserComponent} from "./new-user/new-user.component";
+import {ListUserComponent} from "./list-user/list-user.component";
+import {InfoUserComponent} from "./info-user/info-user.component";
 
 
 @NgModule({
   declarations: [
-    UserComponent
+    UserComponent,
+    NewUserComponent,
+    ListUserComponent,
+    InfoUserComponent
   ],
   imports: [
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule,
+    NzTableModule,
+    NzDividerModule,
+    NzGridModule,
+    NzButtonModule,
+    NzIconModule
   ]
 })
 export class UserModule { }

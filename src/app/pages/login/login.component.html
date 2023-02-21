@@ -1,1 +1,42 @@
-<p>login works!</p>
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()" nz-form [nzLayout]="'horizontal'">
+  <nz-form-item>
+    <nz-form-control>
+      <nz-input-group nzPrefixIcon="user">
+        <input nz-input placeholder="Correo electrónico" formControlName="email" type="email"/>
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control>
+      <nz-input-group [nzSuffix]="suffixTemplate" nzPrefixIcon="lock">
+        <input nz-input placeholder="Contraseña" formControlName="password"
+               [type]="!passwordVisible ? 'password' : 'text'"/>
+      </nz-input-group>
+      <ng-template #suffixTemplate>
+      <span
+        nz-icon
+        [nzType]="!passwordVisible ? 'eye-invisible' : 'eye'"
+        (click)="passwordVisible = !passwordVisible"
+      ></span>
+      </ng-template>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control>
+      <button nz-button nzType="primary" [disabled]="!formGroup.valid">Iniciar sesión</button>
+    </nz-form-control>
+  </nz-form-item>
+
+  <ng-container *ngIf="error">
+    <nz-alert
+      nzShowIcon
+      nzType="error"
+      nzMessage="Error al iniciar sesión"
+      [nzDescription]="errorDescriptionTemplate"
+      nzCloseable
+    ></nz-alert>
+    <ng-template #errorDescriptionTemplate>
+      <p>{{errorMessage}}</p>
+    </ng-template>
+  </ng-container>
+</form>

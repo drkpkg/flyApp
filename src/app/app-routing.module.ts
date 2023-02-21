@@ -83,7 +83,12 @@ const routes: Routes = [
     path: 'countries/:id',
     loadChildren: () => import('./pages/country/country.module').then(m => m.CountryModule),
     pathMatch: "full"
-  }
+  },
+  {
+    path: 'users',
+    loadChildren: () => import('./pages/user/user.module').then(m => m.UserModule),
+    pathMatch: "full",
+  },
 ];
 
 @NgModule({

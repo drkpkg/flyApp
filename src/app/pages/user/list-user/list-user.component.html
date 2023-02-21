@@ -1,0 +1,32 @@
+<ng-container>
+  <nz-row>
+    <nz-button-group>
+      <button nz-button nzType="primary" (click)="addUser()">
+        <i nz-icon nzType="plus"></i>
+        <span>Agregar usuario</span>
+      </button>
+    </nz-button-group>
+  </nz-row>
+  <nz-table #basicTable [nzData]="dataSet">
+    <thead>
+    <tr>
+      <th>Correo electrónico</th>
+      <th>Usuario activo</th>
+      <th>Fecha de creación</th>
+      <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{data.email}}</td>
+      <td>{{data.active}}</td>
+      <td>{{data.created_at}}</td>
+      <td>
+        <a>Action 一 {{data.email}}</a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a>Eliminar</a>
+      </td>
+    </tr>
+    </tbody>
+  </nz-table>
+</ng-container>
