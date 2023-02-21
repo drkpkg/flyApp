@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {SupabaseService} from "../../supabase.service";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   error: boolean = false;
   errorMessage: string = '';
 
-  constructor(private supabaseService: SupabaseService) {
+  constructor(private supabaseService: SupabaseService, private router: Router) {
     this.formBuilder = new FormBuilder();
     this.formGroup = this.formBuilder.group({
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -24,7 +25,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    if (sessionStorage.getItem('token')) {
+      this.router.navigate(['/users']);
+    }
   }
 
   onSubmit() {
@@ -35,15 +38,9 @@ export class LoginComponent implements OnInit {
         this.errorMessage = error.message == 'Invalid login credentials' ? 'Usuario o contraseña incorrectos' : 'Ha ocurrido un error, intente nuevamente';
       }else{
         this.errorMessage = '';
-        console.log('data', dataValue)
-        // sessionStorage.setItem('token', dataValue.access_token);
-        // this.router.navigate(['/dashboard']);
+        sessionStorage.setItem('token', dataValue.session);
+        this.router.navigate(['/users']);
       }
     });
-  }
-
-  closeAlert() {
-    // close alert
-
   }
 }
