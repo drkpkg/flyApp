@@ -1,1 +1,9 @@
-<p>user works!</p>
+<ng-container *ngIf="listUser">
+  <app-list-user [newUser]="newUser"></app-list-user>
+</ng-container>
+<ng-container *ngIf="newUser">
+  <app-new-user></app-new-user>
+</ng-container>
+<ng-container *ngIf="editUser">
+  <app-info-user></app-info-user>
+</ng-container>
