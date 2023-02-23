@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {SupabaseService} from "../../../supabase.service";
+import User from "../../../models/user.model";
 
 @Component({
   selector: 'app-list-user',
@@ -19,7 +20,7 @@ export class ListUserComponent implements OnInit{
       if (error) {
         console.log('error', error)
       }else{
-        this.dataSet = dataValue;
+        this.dataSet = User.fromJsonList(dataValue);
       }
     });
   }
