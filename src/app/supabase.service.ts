@@ -3,7 +3,7 @@ import {
   AuthChangeEvent,
   AuthSession,
   createClient,
-  Session,
+  Session, SignInWithIdTokenCredentials,
   SupabaseClient,
   User,
 } from '@supabase/supabase-js'
@@ -85,6 +85,11 @@ export class SupabaseService {
 
   async getUsers() {
     const {data, error} = await this.supabase.from('user_list').select('*');
+    return {data, error};
+  }
+
+  async signInWithToken(token: any) {
+    const {data, error} = await this.supabase.auth.refreshSession()
     return {data, error};
   }
 }

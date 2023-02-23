@@ -32,13 +32,12 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.supabaseService.signIn(this.formGroup.value.email, this.formGroup.value.password).then(({data, error}) => {
-      let dataValue: any = data;
       if (error) {
         this.error = true;
         this.errorMessage = error.message == 'Invalid login credentials' ? 'Usuario o contraseña incorrectos' : 'Ha ocurrido un error, intente nuevamente';
       }else{
         this.errorMessage = '';
-        sessionStorage.setItem('token', dataValue.session);
+        sessionStorage.setItem('token', JSON.stringify(data.session));
         this.router.navigate(['/users']);
       }
     });

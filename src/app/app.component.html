@@ -1,4 +1,4 @@
-<nz-layout class="app-layout">
+<nz-layout class="app-layout" *ngIf="hasUser">
   <nz-sider class="menu-sidebar"
             nzCollapsible
             nzWidth="256px"
@@ -44,4 +44,12 @@
       </div>
     </nz-content>
   </nz-layout>
+</nz-layout>
+
+<nz-layout *ngIf="!hasUser" class="app-layout">
+  <nz-content>
+    <div class="inner-content">
+      <router-outlet></router-outlet>
+    </div>
+  </nz-content>
 </nz-layout>
