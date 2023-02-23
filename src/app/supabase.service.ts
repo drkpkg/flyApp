@@ -77,4 +77,14 @@ export class SupabaseService {
     const {data, error} = await this.supabase.from('countries').select('*');
     return {data, error};
   }
+
+  async createUser(email: string, password: string) {
+    const {data, error} = await this.supabase.auth.signUp({email, password});
+    return {data, error};
+  }
+
+  async getUsers() {
+    const {data, error} = await this.supabase.from('user_list').select('*');
+    return {data, error};
+  }
 }

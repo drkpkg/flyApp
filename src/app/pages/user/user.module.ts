@@ -11,6 +11,9 @@ import {NzIconModule} from "ng-zorro-antd/icon";
 import {NewUserComponent} from "./new-user/new-user.component";
 import {ListUserComponent} from "./list-user/list-user.component";
 import {InfoUserComponent} from "./info-user/info-user.component";
+import {NzFormModule} from "ng-zorro-antd/form";
+import {ReactiveFormsModule} from "@angular/forms";
+import {NzInputModule} from "ng-zorro-antd/input";
 
 
 @NgModule({
@@ -27,7 +30,10 @@ import {InfoUserComponent} from "./info-user/info-user.component";
     NzDividerModule,
     NzGridModule,
     NzButtonModule,
-    NzIconModule
+    NzIconModule,
+    NzFormModule,
+    ReactiveFormsModule,
+    NzInputModule
   ]
 })
 export class UserModule { }

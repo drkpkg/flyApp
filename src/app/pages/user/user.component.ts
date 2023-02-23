@@ -24,4 +24,9 @@ export class UserComponent implements OnInit{
   ngOnInit(): void {
   }
 
+  restoreView() {
+    this.newUser = false;
+    this.editUser = false;
+    this.listUser = true;
+  }
 }

@@ -1,1 +1,27 @@
-<p>new-user works!</p>
+<ng-container>
+  <form nz-form [formGroup]="formGroup" (ngSubmit)="submitForm()">
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>Correo electrónico</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input nz-input formControlName="email"/>
+        <small *ngIf="formGroup.get('email')?.dirty && formGroup.get('email')?.errors">
+          Por favor ingrese un correo electrónico válido
+        </small>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>Contraseña</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input nz-input type="password" formControlName="password"/>
+        <small *ngIf="formGroup.get('password')?.dirty && formGroup.get('password')?.errors">
+          Por favor ingrese una contraseña válida
+        </small>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control [nzSpan]="14" [nzOffset]="6">
+        <button nz-button nzType="primary" [disabled]="formGroup.invalid">Guardar</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</ng-container>
