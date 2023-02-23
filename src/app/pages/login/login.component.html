@@ -1,4 +1,5 @@
-<form [formGroup]="formGroup" (ngSubmit)="onSubmit()" nz-form [nzLayout]="'horizontal'">
+<h2>Iniciar sesión</h2>
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="login-form" nz-form [nzLayout]="'horizontal'">
   <nz-form-item>
     <nz-form-control>
       <nz-input-group nzPrefixIcon="user">
@@ -13,11 +14,11 @@
                [type]="!passwordVisible ? 'password' : 'text'"/>
       </nz-input-group>
       <ng-template #suffixTemplate>
-      <span
-        nz-icon
-        [nzType]="!passwordVisible ? 'eye-invisible' : 'eye'"
-        (click)="passwordVisible = !passwordVisible"
-      ></span>
+        <span
+          nz-icon
+          [nzType]="!passwordVisible ? 'eye-invisible' : 'eye'"
+          (click)="passwordVisible = !passwordVisible"
+        ></span>
       </ng-template>
     </nz-form-control>
   </nz-form-item>

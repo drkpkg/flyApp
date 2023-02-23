@@ -1,1 +1,24 @@
-<p>client works!</p>
+<ng-container>
+  <nz-row>
+    <nz-button-group>
+      <button nz-button nzType="primary" (click)="addClient()" *ngIf="!newClient">
+        <i nz-icon nzType="plus"></i>
+        <span>Agregar cliente</span>
+      </button>
+      <button nz-button nzType="primary" (click)="restoreView()" *ngIf="!listClient">
+        <i nz-icon nzType="minus"></i>
+        <span>Cancelar</span>
+      </button>
+    </nz-button-group>
+    <nz-divider nzText="{{!newClient ? 'Lista de clientes' : 'Introduzca los datos del nuevo cliente' }}" nzOrientation="left"></nz-divider>
+  </nz-row>
+</ng-container>
+<ng-container *ngIf="listClient">
+  <app-list-client></app-list-client>
+</ng-container>
+<ng-container *ngIf="newClient">
+  <app-new-client></app-new-client>
+</ng-container>
+<ng-container *ngIf="editClient">
+  <app-info-client></app-info-client>
+</ng-container>

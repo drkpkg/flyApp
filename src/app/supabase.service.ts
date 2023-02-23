@@ -7,6 +7,7 @@ import {
   SupabaseClient,
   User,
 } from '@supabase/supabase-js'
+import { last } from 'rxjs';
 import {environment} from 'src/enviroments/environment';
 
 export interface Profile {
@@ -90,6 +91,24 @@ export class SupabaseService {
 
   async signInWithToken(token: any) {
     const {data, error} = await this.supabase.auth.refreshSession()
+    return {data, error};
+  }
+
+  async getCustomerView() {
+    const {data, error} = await this.supabase.from('customer_view').select('*');
+    return {data, error};
+  }
+
+  async createCustomer(name: string, surname: string, lastname: string, identity_document: string, email: string, phone: string, active: boolean) {
+    const {data, error} = await this.supabase.rpc('create_customer_person', {
+      name: name,
+      surname: surname,
+      lastname: lastname,
+      identity_document: identity_document,
+      email: email,
+      phone: phone,
+      active: active
+    });
     return {data, error};
   }
 }
