@@ -11,7 +11,7 @@
     <tbody>
     <tr *ngFor="let data of basicTable.data">
       <td>{{data.email}}</td>
-      <td>{{data.active}}</td>
+      <td>{{data.deleted_at == null ? 'ACTIVO' : 'INACTIVO'}}</td>
       <td>{{data.created_at}}</td>
       <td>
         <a>Action 一 {{data.email}}</a>
