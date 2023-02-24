@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { EmployeeRoutingModule } from './employee-routing.module';
-import { EmployeeComponent } from './employee.component';
+import { InfoFlightStaffComponent } from './info-flight-staff/info-flight-staff.component';
+import { ListFlightStaffComponent } from './list-flight-staff/list-flight-staff.component';
+import { NewFlightStaffComponent } from './new-flight-staff/new-flight-staff.component';
+import { FlightStaffRoutingModule } from './flight-staff-routing.module';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzGridModule } from 'ng-zorro-antd/grid';
@@ -13,15 +14,21 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzCardModule } from 'ng-zorro-antd/card';
+import { FlightStaffComponent } from './flight-staff.component';
+import { NzSelectModule } from 'ng-zorro-antd/select';
+
 
 
 @NgModule({
   declarations: [
-    EmployeeComponent
+    FlightStaffComponent,
+    InfoFlightStaffComponent,
+    ListFlightStaffComponent,
+    NewFlightStaffComponent
   ],
   imports: [
     CommonModule,
-    EmployeeRoutingModule,
+    FlightStaffRoutingModule,
     NzTableModule,
     NzDividerModule,
     NzGridModule,
@@ -31,7 +38,9 @@ import { NzCardModule } from 'ng-zorro-antd/card';
     ReactiveFormsModule,
     NzInputModule,
     NzMessageModule,
-    NzCardModule
+    NzCardModule,
+
+    NzSelectModule
   ]
 })
-export class EmployeeModule { }
+export class FlightStaffModule { }

@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { EmployeeRoutingModule } from './employee-routing.module';
-import { EmployeeComponent } from './employee.component';
+import { ListStaffComponent } from './list-staff/list-staff.component';
+import { NewStaffComponent } from './new-staff/new-staff.component';
+import { InfoStaffComponent } from './info-staff/info-staff.component';
+import { StaffComponent } from './staff.component';
+import { StaffRoutingModule } from './staff-routing.module';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzGridModule } from 'ng-zorro-antd/grid';
@@ -13,15 +15,19 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzSelectModule } from 'ng-zorro-antd/select';
 
 
 @NgModule({
   declarations: [
-    EmployeeComponent
+    StaffComponent,
+    ListStaffComponent,
+    NewStaffComponent,
+    InfoStaffComponent
   ],
   imports: [
     CommonModule,
-    EmployeeRoutingModule,
+    StaffRoutingModule,
     NzTableModule,
     NzDividerModule,
     NzGridModule,
@@ -31,7 +37,8 @@ import { NzCardModule } from 'ng-zorro-antd/card';
     ReactiveFormsModule,
     NzInputModule,
     NzMessageModule,
-    NzCardModule
+    NzCardModule,
+    NzSelectModule
   ]
 })
-export class EmployeeModule { }
+export class StaffModule { }

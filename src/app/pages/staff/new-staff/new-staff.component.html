@@ -1,0 +1,46 @@
+<nz-card [nzBordered]="false" [nzHoverable]="true">
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" nz-form [nzLayout]="'horizontal'">
+      <nz-form-item>
+        <nz-form-control>
+          <nz-input-group>
+            <input nz-input placeholder="Nombre" formControlName="name" type="text" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control>
+          <nz-input-group>
+            <input nz-input placeholder="Apellido paterno" formControlName="surname" type="text" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control>
+          <nz-input-group>
+            <input nz-input placeholder="Apellido materno" formControlName="lastname" type="text" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control>
+          <nz-input-group>
+            <input nz-input placeholder="Documento de identidad" formControlName="identity_document" type="text" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control>
+          <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Seleccione el cargo" formControlName="occupation_id">
+            <nz-option nzLabel="Registro de Pasajeros" nzValue="4"></nz-option>
+            <nz-option nzLabel="Monitoreo y control de tráfico aéreo" nzValue="5"></nz-option>
+            <nz-option nzLabel="Control de vuelo" nzValue="6"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control>
+          <button nz-button nzType="primary" [disabled]="!formGroup.valid">Crear personal de vuelo</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </nz-card>
