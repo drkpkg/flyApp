@@ -1,1 +1,24 @@
-<p>employee works!</p>
+<ng-container>
+    <nz-row>
+      <nz-button-group>
+        <button nz-button nzType="primary" (click)="addEmployee()" *ngIf="!newEmployee">
+          <i nz-icon nzType="plus"></i>
+          <span>Agregar empleado</span>
+        </button>
+        <button nz-button nzType="primary" (click)="restoreView()" *ngIf="!listEmployee">
+          <i nz-icon nzType="plus"></i>
+          <span>Cancelar</span>
+        </button>
+      </nz-button-group>
+    </nz-row>
+  </ng-container>
+  <ng-container *ngIf="listEmployee">
+    <!-- <app-list-employee></app-list-employee> -->
+  </ng-container>
+  <ng-container *ngIf="newEmployee">
+    <!-- <app-new-employee></app-new-employee> -->
+  </ng-container>
+  <ng-container *ngIf="editEmployee">
+    <!-- <app-info-employee></app-info-employee> -->
+  </ng-container>
+  

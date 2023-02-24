@@ -25,6 +25,36 @@ const routes: Routes = [
     pathMatch: "full"
   },
   {
+    path: 'flightStaffs',
+    loadChildren: () => import('./pages/flight-staff/flight-staff.module').then(m => m.FlightStaffModule),
+    pathMatch: "full"
+  },
+  {
+    path: 'flightStaffs/:id',
+    loadChildren: () => import('./pages/flight-staff/flight-staff.module').then(m => m.FlightStaffModule),
+    pathMatch: "full"
+  },
+    {
+    path: 'staff',
+    loadChildren: () => import('./pages/staff/staff.module').then(m => m.StaffModule),
+    pathMatch: "full"
+  },
+  {
+    path: 'staff/:id',
+    loadChildren: () => import('./pages/staff/staff.module').then(m => m.StaffModule),
+    pathMatch: "full"
+  },
+  {
+    path: 'receptionist',
+    loadChildren: () => import('./pages/receptionist/receptionist.module').then(m => m.ReceptionistModule),
+    pathMatch: "full"
+  },
+  {
+    path: 'receptionist/:id',
+    loadChildren: () => import('./pages/receptionist/receptionist.module').then(m => m.ReceptionistModule),
+    pathMatch: "full"
+  },
+  {
     path: 'flights',
     loadChildren: () => import('./pages/flight/flight.module').then(m => m.FlightModule),
     pathMatch: "full"

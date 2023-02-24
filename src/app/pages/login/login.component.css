@@ -1,16 +1,18 @@
-.login-form {
-
-    max-width: 300px;
-}
-
-.login-form-margin {
-    margin-bottom: 16px;
-}
-
-.login-form-forgot {
-    float: right;
-}
-
-.login-form-button {
-    width: 100%;
-}
+.login-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+    justify-items: center;
+    align-items: center;
+    height: 50vh;
+  }
+  
+  h2 {
+    margin-top: 0;
+  }
+  
+  img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+  }

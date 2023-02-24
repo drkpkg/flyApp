@@ -1,0 +1,27 @@
+<ng-container>
+    <nz-table #basicTable [nzData]="dataSet">
+      <thead>
+      <tr>
+        <th>Nombre y apellido</th>
+        <th>Documento de identidad</th>
+        <th>Cargo</th>
+        <th>Licencia</th>
+        <th>Acciones</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td>{{data.fullName}}</td>
+        <td>{{data.identity_document}}</td>
+        <td>{{data.occupation_name}}</td>
+        <td>{{data.flight_license}}</td>
+        <td>
+          <a>Editar</a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a>Eliminar</a>
+        </td>
+      </tr>
+      </tbody>
+    </nz-table>
+</ng-container>
+  
