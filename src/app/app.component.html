@@ -8,7 +8,7 @@
     <div class="sidebar-logo">
       <a href="https://ng.ant.design/" target="_blank">
         <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
-        <h1>Ant Design Of Angular</h1>
+        <h1>AereoBolivia</h1>
       </a>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
@@ -16,6 +16,19 @@
         <ul>
           <li nz-menu-item nzMatchRouter>
             <a routerLink="users">Usuarios</a>
+          </li>
+          <li nz-submenu nzTitle="Empleados">
+            <ul>
+              <li nz-menu-item nzMatchRouter>
+                <a routerLink="flightStaffs">Personal de vuelo</a>
+              </li>
+              <li nz-menu-item nzMatchRouter>
+                <a routerLink="staff">Personal de base</a>
+              </li>
+              <li nz-menu-item nzMatchRouter>
+                <a routerLink="receptionist">Recepcionistas</a>
+              </li>
+            </ul>
           </li>
           <li nz-menu-item nzMatchRouter>
             <a routerLink="clients">Clientes</a>

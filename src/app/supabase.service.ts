@@ -118,4 +118,56 @@ export class SupabaseService {
     ]);
     return {data, error};
   }
+
+  async getFlightStaffView() {
+    const {data, error} = await this.supabase.from('flight_staff_view').select('*');
+    return {data, error};
+  }
+
+  async createFlightStaff(name: string, surname: string, lastname: string, identity_document: string, occupation_id: number, flight_license: string, active: boolean) {
+    const {data, error} = await this.supabase.rpc('create_flight_staff', {
+      name: name,
+      surname: surname,
+      lastname: lastname,
+      identity_document: identity_document,
+      occupation_id: occupation_id,
+      flight_license: flight_license,
+      active: active
+    });
+    return {data, error};
+  }
+
+  async getStaffView() {
+    const {data, error} = await this.supabase.from('staff_view').select('*');
+    return {data, error};
+  }
+
+  async createStaff(name: string, surname: string, lastname: string, identity_document: string, occupation_id: number, active: boolean) {
+    const {data, error} = await this.supabase.rpc('create_staff', {
+      name: name,
+      surname: surname,
+      lastname: lastname,
+      identity_document: identity_document,
+      occupation_id: occupation_id,
+      active: active
+    });
+    return {data, error};
+  }
+
+  async getReceptionistView() {
+    const {data, error} = await this.supabase.from('receptionist_view').select('*');
+    return {data, error};
+  }
+
+  async createReceptionist(name: string, surname: string, lastname: string, identity_document: string, occupation_id: number, active: boolean) {
+    const {data, error} = await this.supabase.rpc('create_receptionist', {
+      name: name,
+      surname: surname,
+      lastname: lastname,
+      identity_document: identity_document,
+      occupation_id: occupation_id,
+      active: active
+    });
+    return {data, error};
+  }
 }
