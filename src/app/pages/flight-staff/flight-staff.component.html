@@ -1,0 +1,24 @@
+<ng-container>
+  <nz-row>
+    <nz-button-group>
+      <button nz-button nzType="primary" (click)="addFlightStaff()" *ngIf="!newFlightStaff">
+        <i nz-icon nzType="plus"></i>
+        <span>Agregar personal de vuelo</span>
+      </button>
+      <button nz-button nzType="primary" (click)="restoreView()" *ngIf="!listFlightStaff">
+        <i nz-icon nzType="minus"></i>
+        <span>Cancelar</span>
+      </button>
+    </nz-button-group>
+    <nz-divider nzText="{{!newFlightStaff ? 'Lista de personal de vuelo' : 'Introduzca los datos del nuevo personal' }}" nzOrientation="left"></nz-divider>
+  </nz-row>
+</ng-container>
+<ng-container *ngIf="listFlightStaff">
+  <app-list-flight-staff></app-list-flight-staff>
+</ng-container>
+<ng-container *ngIf="newFlightStaff">
+  <app-new-flight-staff></app-new-flight-staff>
+</ng-container>
+<ng-container *ngIf="editFlightStaff">
+  <app-info-flight-staff></app-info-flight-staff>
+</ng-container>
