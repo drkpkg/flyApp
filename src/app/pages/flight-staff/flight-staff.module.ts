@@ -15,6 +15,7 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { FlightStaffComponent } from './flight-staff.component';
+import { NzSelectModule } from 'ng-zorro-antd/select';
 
 
 
@@ -37,7 +38,9 @@ import { FlightStaffComponent } from './flight-staff.component';
     ReactiveFormsModule,
     NzInputModule,
     NzMessageModule,
-    NzCardModule
+    NzCardModule,
+
+    NzSelectModule
   ]
 })
 export class FlightStaffModule { }

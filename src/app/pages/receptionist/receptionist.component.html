@@ -1,1 +1,24 @@
-<p>receptionist works!</p>
+<ng-container>
+    <nz-row>
+      <nz-button-group>
+        <button nz-button nzType="primary" (click)="addReceptionist()" *ngIf="!newReceptionist">
+          <i nz-icon nzType="plus"></i>
+          <span>Agregar recepcionista</span>
+        </button>
+        <button nz-button nzType="primary" (click)="restoreView()" *ngIf="!listReceptionist">
+          <i nz-icon nzType="minus"></i>
+          <span>Cancelar</span>
+        </button>
+      </nz-button-group>
+      <nz-divider nzText="{{!newReceptionist ? 'Lista de recepcionistas' : 'Introduzca los datos del nuevo personal' }}" nzOrientation="left"></nz-divider>
+    </nz-row>
+  </ng-container>
+  <ng-container *ngIf="listReceptionist">
+    <app-list-receptionist></app-list-receptionist>
+  </ng-container>
+  <ng-container *ngIf="newReceptionist">
+    <app-new-receptionist></app-new-receptionist>
+  </ng-container>
+  <ng-container *ngIf="editReceptionist">
+    <app-info-receptionist></app-info-receptionist>
+  </ng-container>

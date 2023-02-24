@@ -38,7 +38,7 @@ export class NewFlightStaffComponent {
       {
         console.log(error)
       }else{
-        this.messageService.success('Se ha creado el cliente correctamente');
+        this.messageService.success('Se ha creado el personal correctamente');
       }
     })
   }
