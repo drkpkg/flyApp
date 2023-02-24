@@ -12,7 +12,7 @@ export class NewCountryComponent implements OnInit{
   formBuilder: FormBuilder;
   formGroup: FormGroup;
 
-  constructor(private supabaseService: SupabaseService, private messageService: NzMessageService){
+  constructor(private supabaseService: SupabaseService){
     this.formBuilder = new FormBuilder();
     this.formGroup = this.formBuilder.group(
       {
@@ -29,12 +29,9 @@ export class NewCountryComponent implements OnInit{
     this.supabaseService.createCountry(this.formGroup.value.name).then(({data, error}) => {
       if(error)
       {
-        this.messageService.create(
-          'error',
-          'No se ha podido crear el país',
-        );
+        console.log(error)
       }else{
-        this.messageService.success('Se ha creado el país correctamente');
+        window.location.reload();
       }
     })
   }

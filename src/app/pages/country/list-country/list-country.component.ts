@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import Customer from 'src/app/models/customer.model';
 import {SupabaseService} from 'src/app/supabase.service';
 import Country from "../../../models/country.model";
-import {NzNotificationService} from "ng-zorro-antd/notification";
 
 @Component({
   selector: 'app-list-country',
@@ -13,14 +11,14 @@ export class ListCountryComponent implements OnInit {
 
   dataSet: Country[] = [];
 
-  constructor(private supabaseService: SupabaseService, private notificationService: NzNotificationService) {
+  constructor(private supabaseService: SupabaseService) {
 
   }
 
   ngOnInit(): void {
     this.supabaseService.countries().then(({data, error}) => {
       if (error) {
-        this.notificationService.error('Error', 'No se ha podido obtener la lista de países');
+        console.log(error);
       } else {
         if (data) {
           this.dataSet = Country.fromJsonList(data);

@@ -9,27 +9,26 @@ import {NzNotificationService} from "ng-zorro-antd/notification";
   styleUrls: ['./country.component.css']
 })
 export class CountryComponent implements OnInit {
-  newUser = false;
-  editUser = false;
-  listUser = true;
-  userId: number = 0;
-  countries: Country[] = [];
+  newCountry = false;
+  editCountry = false;
+  listCountry = true;
 
-  constructor(private supabaseService: SupabaseService, private notificationService: NzNotificationService) {
+  constructor(private supabaseService: SupabaseService) {
   }
 
   ngOnInit(): void {
 
   }
-  addUser(){
-    this.newUser = true;
-    this.editUser = false;
-    this.listUser = false;
+
+  addUser() {
+    this.newCountry = true;
+    this.editCountry = false;
+    this.listCountry = false;
   }
 
   restoreView() {
-    this.newUser = false;
-    this.editUser = false;
-    this.listUser = true;
+    this.newCountry = false;
+    this.editCountry = false;
+    this.listCountry = true;
   }
 }
