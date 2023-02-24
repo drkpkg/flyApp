@@ -119,6 +119,10 @@ export class SupabaseService {
     return {data, error};
   }
 
+  country(countryId: number) {
+    return this.supabase.from('countries').select('*').eq('id', countryId);
+  }
+
   async getFlightStaffView() {
     const {data, error} = await this.supabase.from('flight_staff_view').select('*');
     return {data, error};

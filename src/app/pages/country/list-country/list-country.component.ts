@@ -1,31 +1,41 @@
-import {Component, OnInit} from '@angular/core';
-import Customer from 'src/app/models/customer.model';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {SupabaseService} from 'src/app/supabase.service';
 import Country from "../../../models/country.model";
-import {NzNotificationService} from "ng-zorro-antd/notification";
 
 @Component({
   selector: 'app-list-country',
   templateUrl: './list-country.component.html',
   styleUrls: ['./list-country.component.css']
 })
-export class ListCountryComponent implements OnInit {
-
+export class ListCountryComponent implements OnInit, OnChanges {
+  @Input() newView: boolean = false;
+  @Input() editView: boolean = false;
+  @Input() listView: boolean = true;
   dataSet: Country[] = [];
 
-  constructor(private supabaseService: SupabaseService, private notificationService: NzNotificationService) {
+  constructor(private supabaseService: SupabaseService) {
 
   }
 
   ngOnInit(): void {
     this.supabaseService.countries().then(({data, error}) => {
       if (error) {
-        this.notificationService.error('Error', 'No se ha podido obtener la lista de países');
+        console.log(error);
       } else {
         if (data) {
           this.dataSet = Country.fromJsonList(data);
         }
       }
     });
+  }
+
+  view(data: number | undefined) {
+    this.newView = false;
+    this.editView = false;
+    this.listView = false;
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log("List country", changes);
   }
 }
