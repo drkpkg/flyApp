@@ -118,4 +118,8 @@ export class SupabaseService {
     ]);
     return {data, error};
   }
+
+  country(countryId: number) {
+    return this.supabase.from('countries').select('*').eq('id', countryId);
+  }
 }

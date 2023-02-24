@@ -1,23 +1,23 @@
 <ng-container>
   <nz-row>
     <nz-button-group>
-      <button nz-button nzType="primary" (click)="addUser()" *ngIf="!newCountry">
+      <button nz-button nzType="primary" (click)="addView()" *ngIf="!newView">
         <i nz-icon nzType="plus"></i>
         <span>Nuevo</span>
       </button>
-      <button nz-button nzType="primary" (click)="restoreView()" *ngIf="!listCountry">
+      <button nz-button nzType="primary" (click)="restoreView()" *ngIf="!listView">
         <i nz-icon nzType="minus"></i>
         <span>Cancelar</span>
       </button>
     </nz-button-group>
   </nz-row>
 </ng-container>
-<ng-container *ngIf="listCountry">
-  <app-list-country></app-list-country>
+<ng-container *ngIf="listView">
+  <app-list-country [newView]="newView" [listView]="listView" [editView]="editView"></app-list-country>
 </ng-container>
-<ng-container *ngIf="newCountry">
-  <app-new-country></app-new-country>
+<ng-container *ngIf="newView">
+  <app-new-country [newView]="newView" [listView]="listView" [editView]="editView"></app-new-country>
 </ng-container>
-<ng-container *ngIf="editCountry">
-  <app-info-country></app-info-country>
+<ng-container *ngIf="editView">
+  <app-info-country [newView]="newView" [listView]="listView" [editView]="editView"></app-info-country>
 </ng-container>

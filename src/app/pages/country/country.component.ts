@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {SupabaseService} from "../../supabase.service";
 import Country from "../../models/country.model";
 import {NzNotificationService} from "ng-zorro-antd/notification";
@@ -8,10 +8,10 @@ import {NzNotificationService} from "ng-zorro-antd/notification";
   templateUrl: './country.component.html',
   styleUrls: ['./country.component.css']
 })
-export class CountryComponent implements OnInit {
-  newCountry = false;
-  editCountry = false;
-  listCountry = true;
+export class CountryComponent implements OnInit, OnChanges {
+  @Input() newView = false;
+  @Input() editView = false;
+  @Input() listView = true;
 
   constructor(private supabaseService: SupabaseService) {
   }
@@ -20,15 +20,19 @@ export class CountryComponent implements OnInit {
 
   }
 
-  addUser() {
-    this.newCountry = true;
-    this.editCountry = false;
-    this.listCountry = false;
+  addView() {
+    this.newView = true;
+    this.editView = false;
+    this.listView = false;
   }
 
   restoreView() {
-    this.newCountry = false;
-    this.editCountry = false;
-    this.listCountry = true;
+    this.newView = false;
+    this.editView = false;
+    this.listView = true;
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
   }
 }
