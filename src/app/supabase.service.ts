@@ -111,4 +111,11 @@ export class SupabaseService {
     });
     return {data, error};
   }
+
+  async createCountry(name: string) {
+    const {data, error} = await this.supabase.from('countries').insert([
+      {name: name, active: true}
+    ]);
+    return {data, error};
+  }
 }

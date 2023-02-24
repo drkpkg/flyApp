@@ -1,0 +1,16 @@
+<nz-card [nzBordered]="false" [nzHoverable]="true">
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" nz-form [nzLayout]="'horizontal'">
+      <nz-form-item>
+        <nz-form-control>
+          <nz-input-group nzPrefixIcon="country">
+            <input nz-input placeholder="País" formControlName="name" type="text" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control>
+          <button nz-button nzType="primary" [disabled]="!formGroup.valid">Crear</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </nz-card>
