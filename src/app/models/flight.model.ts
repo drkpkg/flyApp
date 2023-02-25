@@ -1,24 +1,24 @@
 export default class Flight {
-  id: number | undefined;
-  code: string | undefined;
-  arrival_date: string | undefined;
-  departure_date: string | undefined;
-  created_at: string | undefined;
-  updated_at: string | undefined;
-  vehicle_id: number | undefined;
-  route_id: number | undefined;
-  price: number | undefined;
+  id: number;
+  code: string ;
+  arrival_date: string ;
+  departure_date: string ;
+  created_at: string ;
+  updated_at: string ;
+  vehicle_id: number ;
+  route_id: number ;
+  price: number ;
 
   constructor(){
-    this.id = undefined;
-    this.code = undefined;
-    this.arrival_date = undefined;
-    this.departure_date = undefined;
-    this.created_at = undefined;
-    this.updated_at = undefined;
-    this.vehicle_id = undefined;
-    this.route_id = undefined;
-    this.price = undefined;
+    this.id = 0;
+    this.code = '';
+    this.arrival_date = '';
+    this.departure_date = '';
+    this.created_at = '';
+    this.updated_at = '';
+    this.vehicle_id = 0;
+    this.route_id = 0;
+    this.price = 0;
   }
 
   static fromJson(json: any): Flight {

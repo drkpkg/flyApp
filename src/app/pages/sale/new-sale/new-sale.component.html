@@ -3,13 +3,77 @@
     <nz-form-item>
       <nz-form-control>
         <nz-input-group nzPrefixIcon="field-string">
-          <input nz-input placeholder="País" formControlName="name" type="text"/>
+          <nz-select formControlName="customer_id" nzPlaceHolder="Cliente" nzShowSearch nzAllowClear>
+            <nz-option *ngFor="let customer of customers" [nzLabel]="customer.fullName"
+                       [nzValue]="customer.id"></nz-option>
+          </nz-select>
+        </nz-input-group>
+        <nz-input-group nzPrefixIcon="cloud">
+          <nz-select formControlName="flight_id" nzPlaceHolder="Vuelo" nzShowSearch nzAllowClear>
+            <nz-option *ngFor="let flight of flights" [nzLabel]="flight.code" [nzValue]="flight.id"></nz-option>
+          </nz-select>
+        </nz-input-group>
+        <nz-input-group nzPrefixIcon="money-collect">
+          <nz-select formControlName="payment_method_id" nzPlaceHolder="Método de pago" nzShowSearch nzAllowClear>
+            <nz-option *ngFor="let paymentMethod of paymentMethods" [nzLabel]="paymentMethod.name"
+                       [nzValue]="paymentMethod.id"></nz-option>
+          </nz-select>
+        </nz-input-group>
+        <nz-input-group nzPrefixIcon="money-collect">
+          <input formControlName="unit_price" nz-input type="number" placeholder="Monto" min="0" step="0.01">
         </nz-input-group>
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
+      <!--Passengers data, dynamic row of form -->
       <nz-form-control>
-        <button nz-button nzType="primary" [disabled]="!formGroup.valid">Crear</button>
+        <ng-container>
+          <!--
+          name text, surname text, lastname text, identity_document text, phone text, active boolean
+          3 passengers inputs
+          -->
+          <nz-form-item>
+            <nz-form-control>
+              <nz-input-group nzPrefixIcon="user">
+                <input formControlName="p1_name" nz-input type="text" placeholder="Nombre">
+              </nz-input-group>
+              <nz-input-group nzPrefixIcon="user">
+                <input formControlName="p1_surname" nz-input type="text" placeholder="Apellido">
+              </nz-input-group>
+              <nz-input-group nzPrefixIcon="user">
+                <input formControlName="p1_lastname" nz-input type="text" placeholder="Apellido materno">
+              </nz-input-group>
+              <nz-input-group nzPrefixIcon="idcard">
+                <input formControlName="p1_identity_document" nz-input type="text" placeholder="DNI">
+              </nz-input-group>
+              <nz-input-group nzPrefixIcon="phone">
+                <input formControlName="p1_phone" nz-input type="text" placeholder="Teléfono">
+              </nz-input-group>
+            </nz-form-control>
+            <nz-form-control>
+              <nz-input-group nzPrefixIcon="user">
+                <input formControlName="p2_name" nz-input type="text" placeholder="Nombre">
+              </nz-input-group>
+              <nz-input-group nzPrefixIcon="user">
+                <input formControlName="p2_surname" nz-input type="text" placeholder="Apellido">
+              </nz-input-group>
+              <nz-input-group nzPrefixIcon="user">
+                <input formControlName="p2_lastname" nz-input type="text" placeholder="Apellido materno">
+              </nz-input-group>
+              <nz-input-group nzPrefixIcon="idcard">
+                <input formControlName="p2_identity_document" nz-input type="text" placeholder="DNI">
+              </nz-input-group>
+              <nz-input-group nzPrefixIcon="phone">
+                <input formControlName="p2_phone" nz-input type="text" placeholder="Teléfono">
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+        </ng-container>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control>
+        <button nz-button nzType="primary">Crear</button>
       </nz-form-control>
     </nz-form-item>
   </form>

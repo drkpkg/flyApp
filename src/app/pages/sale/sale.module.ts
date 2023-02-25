@@ -13,6 +13,8 @@ import {NzInputModule} from "ng-zorro-antd/input";
 import {NzButtonModule} from "ng-zorro-antd/button";
 import {NzTableModule} from "ng-zorro-antd/table";
 import {NzDividerModule} from "ng-zorro-antd/divider";
+import {NzSelectModule} from "ng-zorro-antd/select";
+import {PassengerPersonComponent} from "./new-passenger-person/passenger-person.component";
 
 
 @NgModule({
@@ -20,18 +22,20 @@ import {NzDividerModule} from "ng-zorro-antd/divider";
     SaleComponent,
     NewSaleComponent,
     InfoSaleComponent,
-    ListSaleComponent
+    ListSaleComponent,
+    PassengerPersonComponent
   ],
-  imports: [
-    CommonModule,
-    SaleRoutingModule,
-    NzCardModule,
-    ReactiveFormsModule,
-    NzFormModule,
-    NzInputModule,
-    NzButtonModule,
-    NzTableModule,
-    NzDividerModule
-  ]
+    imports: [
+        CommonModule,
+        SaleRoutingModule,
+        NzCardModule,
+        ReactiveFormsModule,
+        NzFormModule,
+        NzInputModule,
+        NzButtonModule,
+        NzTableModule,
+        NzDividerModule,
+        NzSelectModule
+    ]
 })
 export class SaleModule { }

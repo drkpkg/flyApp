@@ -8,6 +8,7 @@ export default class Sale {
   customer: { id: number | undefined, person: { name: string | undefined, surname: string | undefined, lastname: string | undefined, identity_document: string | undefined } | undefined } | undefined;
   flight: { id: number | undefined, code: string | undefined } | undefined;
   payment_method: { id: number | undefined, name: string | undefined } | undefined;
+  passengers: any[] | undefined;
 
   static fromJson(data: any) {
     let sale = new Sale();

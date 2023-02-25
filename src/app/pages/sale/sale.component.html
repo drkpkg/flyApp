@@ -1,8 +1,14 @@
 <nz-button-group>
-  <button nz-button [nzType]="'primary'" (click)="saleProcess()">
+  <button nz-button [nzType]="'primary'" (click)="saleProcess()" *ngIf="listView">
     <span>Nuevo proceso de venta</span>
   </button>
+  <button nz-button [nzType]="'primary'" (click)="cancelProcess()" *ngIf="newView">
+    <span>Cancelar</span>
+  </button>
 </nz-button-group>
-<ng-container>
+<ng-container *ngIf="listView">
   <app-list-sale></app-list-sale>
+</ng-container>
+<ng-container *ngIf="newView">
+  <app-new-sale></app-new-sale>
 </ng-container>

@@ -180,7 +180,7 @@ export class SupabaseService {
         flight_id,
         passenger_data,
         payment_method_id,
-        unit_price
+        unit_price,
       })
     return {data, error}
   }
@@ -192,21 +192,15 @@ export class SupabaseService {
   }
 
   async flights() {
-    /*
-    id
-code
-arrival_date
-departure_date
-created_at
-updated_at
-vehicle_id
-route_id
-price
-    * */
     const {
       data,
       error
     } = await this.supabase.from('flights').select('id, code, arrival_date, departure_date, created_at, updated_at, vehicle_id, route_id, price')
+    return {data, error};
+  }
+
+  async paymentMethods() {
+    const {data, error} = await this.supabase.from('payment_methods').select('*')
     return {data, error};
   }
 }
