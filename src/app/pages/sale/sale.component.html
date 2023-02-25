@@ -1,1 +1,8 @@
-<p>sale works!</p>
+<nz-button-group>
+  <button nz-button [nzType]="'primary'" (click)="saleProcess()">
+    <span>Nuevo proceso de venta</span>
+  </button>
+</nz-button-group>
+<ng-container>
+  <app-list-sale></app-list-sale>
+</ng-container>

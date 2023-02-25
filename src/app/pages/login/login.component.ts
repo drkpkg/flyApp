@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
       }else{
         this.errorMessage = '';
         sessionStorage.setItem('token', JSON.stringify(data.session));
-        this.router.navigate(['/']);
+        this.router.navigate(['/'], {replaceUrl: true});
       }
     });
   }

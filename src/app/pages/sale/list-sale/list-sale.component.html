@@ -1,0 +1,62 @@
+<!--
+/*
+{
+    "id": 28,
+    "date": "2023-02-25T06:18:03.320197",
+    "unit_price": 2480,
+    "total_price": null,
+    "created_at": "2023-02-25T06:18:03.320197+00:00",
+    "updated_at": "2023-02-25T06:18:03.320197+00:00",
+    "customer": {
+        "id": 1,
+        "person": {
+            "name": "Carlos",
+            "surname": "Gutierrez",
+            "lastname": "Hodzic",
+            "identity_document": "8934504SC"
+        }
+    },
+    "flight": {
+        "id": 1,
+        "code": "V-01"
+    },
+    "payment_method": {
+        "id": 1,
+        "name": "Efectivo"
+    }
+}
+* */
+-->
+<ng-container>
+    <nz-table #basicTable [nzData]="dataSet">
+      <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Cliente</th>
+        <th>Vuelo</th>
+        <th>Método de pago</th>
+        <th>Precio unitario</th>
+        <th>Precio total</th>
+        <th>Acciones</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td>{{data.date}}</td>
+        <td>{{data.customer?.person?.name}} {{data.customer?.person?.surname}} {{data.customer?.person?.lastname}}</td>
+        <td>{{data.flight?.code}}</td>
+        <td>{{data.payment_method?.name}}</td>
+        <td>{{data.unit_price}}</td>
+        <td>{{data.total_price}}</td>
+        <td>
+<!--          <button nz-button nzType="primary" nzSize="small" (click)="edit(data.id)">-->
+<!--            <i nz-icon nzType="edit"></i>-->
+<!--          </button>-->
+<!--          <button nz-button nzType="danger" nzSize="small" (click)="delete(data.id)">-->
+<!--            <i nz-icon nzType="delete"></i>-->
+<!--          </button>-->
+        </td>
+      </tr>
+      </tbody>
+    </nz-table>
+</ng-container>

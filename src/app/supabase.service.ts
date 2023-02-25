@@ -3,11 +3,9 @@ import {
   AuthChangeEvent,
   AuthSession,
   createClient,
-  Session, SignInWithIdTokenCredentials,
-  SupabaseClient,
+  Session, SupabaseClient,
   User,
 } from '@supabase/supabase-js'
-import { last } from 'rxjs';
 import {environment} from 'src/enviroments/environment';
 
 export interface Profile {
@@ -172,6 +170,43 @@ export class SupabaseService {
       occupation_id: occupation_id,
       active: active
     });
+    return {data, error};
+  }
+
+  async createSale(customer_id: number, flight_id: number, passenger_data: any[], payment_method_id: number, unit_price: number) {
+    const {data, error} = await this.supabase
+      .rpc('create_flight_sale', {
+        customer_id,
+        flight_id,
+        passenger_data,
+        payment_method_id,
+        unit_price
+      })
+    return {data, error}
+  }
+
+  async sales() {
+    const {data, error} = await this.supabase.from('sales')
+      .select('id, date, unit_price, total_price, customer: customer_id (id, person: person_id (name, surname, lastname, identity_document)), flight: flight_id (id, code), payment_method: payment_method_id (id, name), created_at, updated_at')
+    return {data, error};
+  }
+
+  async flights() {
+    /*
+    id
+code
+arrival_date
+departure_date
+created_at
+updated_at
+vehicle_id
+route_id
+price
+    * */
+    const {
+      data,
+      error
+    } = await this.supabase.from('flights').select('id, code, arrival_date, departure_date, created_at, updated_at, vehicle_id, route_id, price')
     return {data, error};
   }
 }

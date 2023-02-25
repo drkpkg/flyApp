@@ -14,6 +14,10 @@ export class AppComponent {
 
   constructor(private supabaseService: SupabaseService, private router: Router) {
     this.hasUser = false;
+    this.checkUser();
+  }
+
+  private checkUser() {
     if (sessionStorage.getItem('token') != null) {
       let token = JSON.parse(sessionStorage.getItem('token') as string);
       this.supabaseService.signInWithToken(token.refresh_token).then(({data, error}) => {

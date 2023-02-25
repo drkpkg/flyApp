@@ -1,0 +1,30 @@
+<ng-container>
+    <nz-table #basicTable [nzData]="dataSet">
+      <thead>
+      <tr>
+        <th>Código</th>
+        <th>Fecha de llegada</th>
+        <th>Fecha de salida</th>
+        <th>Id del vehículo</th>
+        <th>Fecha de creación</th>
+        <th>Fecha de actualización</th>
+        <th>Tipo de vehículo</th>
+        <th>Id de la ruta</th>
+        <th>Precio</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td>{{data.code}}</td>
+        <td>{{data.arrival_date}}</td>
+        <td>{{data.departure_date}}</td>
+        <td>{{data.vehicle_id}}</td>
+        <td>{{data.created_at}}</td>
+        <td>{{data.updated_at}}</td>
+        <td>{{data.vehicle_id}}</td>
+        <td>{{data.route_id}}</td>
+        <td>{{data.price}}</td>
+      </tr>
+      </tbody>
+    </nz-table>
+</ng-container>
